@@ -7,7 +7,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		return window.location.protocol == 'https:' ? 'https://' : 'http://';
 	}
 	var TRASH_R = ['$$$####!!!!!!!', '^^^^^^##@', '@!^^!@#@@$$$$$', '^^#@@!!@#!$', '@#!@@@##$$@@'];
-	var version_modss = '3.0', API = 'https://api.lampa.stream/', type = '', jackets = {}, cards, ping_auth, manifest, menu_list = [], vip = false, leftVipD = '', user_id = 86914, uid = '3cd26a8132842c8ee74bfe73d0ff3bbb_86914', IP, logged = true;
+	var version_modss = '3.0', API = 'https://api.lampa.stream/', type = '', jackets = {}, cards, ping_auth, manifest, menu_list = [], vip = true, leftVipD = ' 💎 91 день', user_id = 86914, uid = '3cd26a8132842c8ee74bfe73d0ff3bbb_86914', IP, logged = true;
 	console.log('App', 'protocol:', Protocol());
 	
 	var Modss = {
@@ -52,19 +52,19 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   			};
   		}
   		if(!IP) this.getIp();
-  		var ads_4k = ['<div style="padding: 1.5em 2em; padding-top: 0;">', '<div style="background: #3e3e3e; padding: 1em; border-radius: 0.3em;">', '<div style="line-height: 1.4;">Надоело смотреть в плохом качестве?<br>Хочешь смотреть в FHD и 4K? Переходи в телеграм бот <span style="color: #24b4f9">@modssmy_bot</span> для подключения VIP</div>', '</div>', '</div>'].join('');
+  	
     	Lampa.Controller.listener.follow('toggle', function(e) {
-    		if(e.name == 'select' && ) {
+    		if(e.name == 'select' && !vip) {
     			setTimeout(function() {
     				if($('.selectbox .scroll__body div:eq(0)').html().indexOf('.land') >= 0)
 					  $('.selectbox .scroll__body div:eq(0)').remove();
-    				if($('.selectbox .selectbox-item__icon svg').length && Lampa.Activity.active().component == 'full') $('.selectbox .scroll__body').prepend($(ads_4k));
+    				if($('.selectbox .selectbox-item__icon svg').length && Lampa.Activity.active().component == 'full');
     			}, 10);
     		}
     	});
     	var mynotice = new Lampa.NoticeClassLampa({name: 'Modss',db_name: 'notice_modss'});
       Lampa.Notice.addClass('modss', mynotice);
-      if(Lampa.Storage.get('showModssVip', false) && leftVipD && logged) setTimeout(function (){
+      if(Lampa.Storage.get('showModssVip', false) && leftVipD && vip && logged) setTimeout(function (){
         Modss.showModssVip();
         Lampa.Storage.set('showModssVip', false);
       }, 2000);
@@ -450,7 +450,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
   				var auth = json.data.auth;
   				vip = json.data.vip;
   				if(json.data.leftDays) leftVipD = json.data.leftDays;
-  				if(!vip) Lampa.Storage.set('showModssVip', true);
+  				
           if (logged !== auth) {
   				  logged = auth;
   				  window.location.reload();
@@ -511,7 +511,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
       });
 		},
 		balansers: function() {
-		  var balansers = {"hdr":"HDR MODS's [4K]","pub":"Pub 4K  <span style=\"font-weight: 700;color:rgb(236,151,31)\">VIP</span>","hdrezka":"HDRezka 4K","bazon":"Bazon 4K","qiwi":"VBMovies 4K ","uakino":"UAKino","eneida":"Eneida(Ukr)","kodik":"Kodik","anilibria":"Anilibria","hdvb":"HDVB  <span style=\"font-weight: 700;color:rgb(236,151,31)\">VIP</span>","kinobase":"Kinobase","cdnmovies":"CDNmovies","videocdn":"VideoCDN","rezka":"Rezka","collaps":"Collaps","kinotochka":"KinoTochka"};
+		  var balansers = {"hdr":"HDR MODS's [4K]","pub":"Pub 4K","hdrezka":"HDRezka 4K","bazon":"Bazon 4K","qiwi":"VBMovies 4K","filmix":"Filmix","videodb":"VideoDB","zetflix":"Zetflix","uakino":"UAKino","eneida":"Eneida(Ukr)","kodik":"Kodik","anilibria":"Anilibria","hdvb":"HDVB","kinobase":"Kinobase","cdnmovies":"CDNmovies","videocdn":"VideoCDN","rezka":"Rezka","collaps":"Collaps","kinotochka":"KinoTochka"};
       if (Lampa.Storage.get('pro_pub', false)) balansers = Object.assign({"pub":"Pub"}, balansers);
       return balansers;
     },
