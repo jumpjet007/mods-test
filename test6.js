@@ -7,7 +7,7 @@ Date.now||(Date.now=function(){return(new Date.getTime())}),function(){"use stri
 		return window.location.protocol == 'https:' ? 'https://' : 'http://';
 	}
 	var TRASH_R = ['$$$####!!!!!!!', '^^^^^^##@', '@!^^!@#@@$$$$$', '^^#@@!!@#!$', '@#!@@@##$$@@'];
-	var version_modss = '3.0', API = 'https://api.lampa.stream/', type = '', jackets = {}, cards, ping_auth, manifest, menu_list = [], vip = true, leftVipD = ' ', user_id = 86914, uid = '3cd26a8132842c8ee74bfe73d0ff3bbb_86914', IP, logged = true;
+	var version_modss = '3.0', API = 'https://api.lampa.stream/', type = '', jackets = {}, cards, ping_auth, manifest, menu_list = [], vip = true, leftVipD = ' ', user_id = 1, uid = '3cd26a8132842c8ee74bfe73d0ff3bbb_86914', IP, logged = true;
 	console.log('App', 'protocol:', Protocol());
 	
 	var Modss = {
